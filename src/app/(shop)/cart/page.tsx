@@ -1,5 +1,6 @@
 import { QuantitySelector, Title } from "@/components";
 import { initialData } from "@/seed/seed";
+import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,6 +12,9 @@ const productsInCart = [
 
 
 export default function() {
+
+  /* redirect("/") */
+
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
 
@@ -54,7 +58,7 @@ export default function() {
            </div>
           
           {/* resumen compra*/}
-          <div className="bg-white rounded-xl shadow-xl p-7 md:h-[285px]">
+          <div className="bg-white rounded-xl shadow-xl p-7 h-[290px]">
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
 
             <div className="grid grid-cols-2">
