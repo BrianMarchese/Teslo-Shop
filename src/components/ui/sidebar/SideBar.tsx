@@ -1,5 +1,6 @@
 'use client'
 
+import { logout } from "@/actions"
 import { useUIStore } from "@/store"
 import clsx from "clsx"
 import Link from "next/link"
@@ -54,9 +55,9 @@ export const SideBar = () => {
                 </div>
 
                 {/* MENU */}
-                <Link href={"/"} className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
+                <Link href={"/profile"} onClick={ () => closeMenu() } className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
                     <IoPersonOutline size={30}/>
-                    <span className="ml-3 text-xl">Perfil</span>
+                    <span className="ml-3 text-xl">Perfil</span>   
                 </Link>
 
                 <Link href={"/"} className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
@@ -64,15 +65,15 @@ export const SideBar = () => {
                     <span className="ml-3 text-xl">Ordenes</span>
                 </Link>
 
-                <Link href={"/"} className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
+                <Link href={"auth/login"} onClick={ () => closeMenu() } className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
                     <IoLogInOutline size={30}/>
                     <span className="ml-3 text-xl">Ingresar</span>
                 </Link>
 
-                <Link href={"/"} className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
+                <button onClick={ () => logout() } className="flex items-center w-full mt-10 p-2 hover:bg-gray-100 rounded transition-all"> 
                     <IoLogOutOutline size={30}/>
                     <span className="ml-3 text-xl">Salir</span>
-                </Link>
+                </button>
 
                 {/* SEPARADOR DE LINEA */}
                 <div className="w-full h-px bg-gray-200 my-10"/>
