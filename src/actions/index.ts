@@ -5,3 +5,4 @@ export * from './product/product-pagination';
 export { authenticate } from './auth/login';
 export { logout } from './auth/logout';
 export { registerUser } from './auth/register';
+export { getCountries } from './country/get-countries';
