@@ -3,6 +3,7 @@
 import { Country } from "@/interfaces"
 import { useAddressStore } from "@/store"
 import clsx from "clsx"
+import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
@@ -23,7 +24,7 @@ interface Props {
 }
 
 const AddressForm = ({ countries }: Props) => {
-
+  const router = useRouter();
   const { handleSubmit, register, formState: { isValid }, reset } = useForm<FormInputs>()
   
   const setAddress = useAddressStore( state => state.setAddres ) // funcion que me va a guardar los datos en el localStorage
@@ -40,6 +41,8 @@ const AddressForm = ({ countries }: Props) => {
     console.log({data})
 
     setAddress(data)
+
+    router.push("/checkout")
   }
 
   return (
@@ -113,6 +116,7 @@ const AddressForm = ({ countries }: Props) => {
         <div className="inline-flex items-center mb-10">
         </div>
       <button 
+        disabled={ !isValid }
         type="submit"
         /* href='/checkout' */
        /*  className="btn-primary flex w-full sm:w-1/2 justify-center" */
