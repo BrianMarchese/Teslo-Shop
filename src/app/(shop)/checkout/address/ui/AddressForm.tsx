@@ -34,7 +34,7 @@ const AddressForm = ({ countries }: Props) => {
     if ( address.firstName ) {
       reset(address)
     }
-  }, [address])
+  }, [address, reset])
   
 
   const onSubmit = ( data: FormInputs ) => {
