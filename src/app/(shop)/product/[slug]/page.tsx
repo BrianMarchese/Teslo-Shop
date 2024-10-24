@@ -25,6 +25,8 @@ export async function generateMetadata(
  
   // optionally access and extend (rather than replace) parent metadata
   //const previousImages = (await parent).openGraph?.images || []
+
+  const domain = 'https://tienda-bm-teslo-shop.vercel.app'
  
   return {
     title: product?.title ?? "Producto no encontrado",
@@ -32,7 +34,7 @@ export async function generateMetadata(
     openGraph: {
       title: product?.title ?? "Producto no encontrado",
       description: product?.description ?? "",
-      images: [`/products/${ product?.images[1] }`], // tomo la segunda imagen de el producto
+      images: [`${domain}/products/${ product?.images[1] }`], // tomo la segunda imagen de el producto
     },
   }
 }
