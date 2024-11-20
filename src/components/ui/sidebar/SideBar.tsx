@@ -66,8 +66,8 @@ export const SideBar = () => {
                     <input type="text" placeholder="Buscar" className="w-full bg-gray-50 rounded pl-10 py-1 pr-10 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500" />
                 </div>
                 {/* CATEGORÍAS */}
-                <div className="w-full h-px bg-gray-200 my-10" />
-                <div>
+                <div className="w-full h-px bg-gray-200 my-10 block md:hidden" />
+                <div className="block md:hidden">
                     <Link
                         href={"/gender/men"}
                         onClick={() => closeMenu()}
@@ -79,19 +79,19 @@ export const SideBar = () => {
                     <Link
                         href={"/gender/women"}
                         onClick={() => closeMenu()}
-                        className="p-2 hover:bg-gray-100 rounded transition-all  text-xl flex items-center"
+                        className="p-2 hover:bg-gray-100 rounded transition-all  text-xl flex items-center mt-10"
                     >   <IoWomanOutline size={30}/>
                         <span className="ml-3">Mujeres</span>
                     </Link>
                     <Link
                         href={"/gender/kid"}
                         onClick={() => closeMenu()}
-                        className="p-2 hover:bg-gray-100 rounded transition-all text-xl flex items-center"
+                        className="p-2 hover:bg-gray-100 rounded transition-all text-xl flex items-center mt-10"
                     >   <TbMoodKid size={30}/>
                         <span className="ml-3">Niños</span>
                     </Link>
                 </div>
-            <div className="w-full h-px bg-gray-200 my-10" />
+                <div className="w-full h-px bg-gray-200 my-10 block md:hidden" />
 
                 {
                     isAuthenticated && (
