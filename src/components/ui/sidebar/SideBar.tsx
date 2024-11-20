@@ -5,7 +5,8 @@ import { useUIStore } from "@/store"
 import clsx from "clsx"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
-import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline } from "react-icons/io5"
+import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoManOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline, IoWomanOutline } from "react-icons/io5"
+import { TbMoodKid } from "react-icons/tb"
 
 
 export const SideBar = () => {
@@ -49,7 +50,7 @@ export const SideBar = () => {
             {/*SIDE MENU */}
             <nav className={
                 clsx(
-                    "fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
+                    "fixed p-5 right-0 top-0 md:w-[500px] w-[250px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300 overflow-y-auto",
                     {
                         "translate-x-full": !isSideMenuOpen
                     }
@@ -64,7 +65,33 @@ export const SideBar = () => {
                     <IoSearchOutline size={20} className="absolute top-2 left-2"/>
                     <input type="text" placeholder="Buscar" className="w-full bg-gray-50 rounded pl-10 py-1 pr-10 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500" />
                 </div>
-
+                {/* CATEGORÍAS */}
+                <div className="w-full h-px bg-gray-200 my-10" />
+                <div>
+                    <Link
+                        href={"/gender/men"}
+                        onClick={() => closeMenu()}
+                        className="p-2 hover:bg-gray-100 rounded transition-all  text-xl flex items-center"
+                    >
+                        <IoManOutline size={30}/>
+                        <span className="ml-3">Hombres</span>
+                    </Link>
+                    <Link
+                        href={"/gender/women"}
+                        onClick={() => closeMenu()}
+                        className="p-2 hover:bg-gray-100 rounded transition-all  text-xl flex items-center"
+                    >   <IoWomanOutline size={30}/>
+                        <span className="ml-3">Mujeres</span>
+                    </Link>
+                    <Link
+                        href={"/gender/kid"}
+                        onClick={() => closeMenu()}
+                        className="p-2 hover:bg-gray-100 rounded transition-all text-xl flex items-center"
+                    >   <TbMoodKid size={30}/>
+                        <span className="ml-3">Niños</span>
+                    </Link>
+                </div>
+            <div className="w-full h-px bg-gray-200 my-10" />
 
                 {
                     isAuthenticated && (
